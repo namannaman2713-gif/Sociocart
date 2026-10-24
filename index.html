@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SocioCart — Essentials at your doorstep</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="app">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">⌂</div><span>socio<em>cart</em></span></div>
+  <nav class="nav" aria-label="Main navigation">
+    <button class="active" data-view="home">Home</button><button data-view="shop">Shop essentials</button><button data-view="tracking">Track order</button><button data-view="rider">Delivery partner</button><button data-view="admin">Admin dashboard</button>
+  </nav>
+  <div class="top-actions"><button class="icon-btn" id="cartOpen" aria-label="Open cart">🛒 <span class="cart-count" id="cartCount">0</span></button><button class="primary-btn" id="headerShop">Order now ↗</button></div>
+</header>
+<main>
+<section class="view active" id="view-home">
+  <div class="hero">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> YOUR NEIGHBOURHOOD, ON CALL</div>
+      <h1>Good things are<br>closer than <span>you think.</span></h1>
+      <p class="hero-copy">Everyday essentials, urgent supplies, and little last-minute needs — delivered right to your flat, without leaving your society.</p>
+      <div class="hero-ctas"><button class="primary-btn" id="heroShop">Explore essentials <span>↗</span></button><button class="secondary-btn" id="heroHow">How it works ↓</button></div>
+      <div class="hero-note"><div class="avatars"><span class="avatar">👩🏽</span><span class="avatar" style="background:#e7bd89">👨🏻</span><span class="avatar" style="background:#d3c5e8">👩🏻</span></div><span><strong style="color:var(--text)">Made for community living</strong><br>Simple. Local. Thoughtful.</span></div>
+    </div>
+    <div class="hero-art"><div class="art-circle"></div><div class="float-card float-one"><small><span style="color:#169e68">●</span> ORDER UPDATE</small><strong><span class="float-icon">✓</span> Your essentials are on the way</strong></div><div class="building"></div><div class="delivery-person"><div class="person-hair"></div><div class="person-head"></div><div class="person-body"></div><div class="person-bag">✚</div><div class="person-leg left"></div><div class="person-leg right"></div></div><div class="float-card float-two"><small>ESTIMATED DELIVERY</small><strong>~ 5–15 min*</strong><small style="margin:5px 0 0">For eligible nearby items</small></div></div>
+  </div>
+  <div class="trust-row"><span>🏘️ <strong>Built for your society</strong></span><span>🌙 <strong>Order anytime</strong></span><span>📍 <strong>Hyperlocal convenience</strong></span><span>🤝 <strong>Community-first</strong></span></div>
+  <div class="section-head"><div><h2>What do you need today?</h2><p>Your everyday essentials, just a few taps away.</p></div><button class="text-link" id="allCategories">View all categories ↗</button></div>
+  <div class="category-grid" id="homeCategories"></div>
+  <div class="section-head"><div><h2>Little things. Big relief.</h2><p>Popular picks from your neighbourhood essentials list.</p></div><button class="text-link" id="popularShop">Explore shop ↗</button></div>
+  <div class="product-grid" id="homeProducts"></div>
+  <div class="banner"><div><h2>Need it now? Start right here.</h2><p>Skip the extra trip. Find your essentials and check availability in the demo store.</p></div><button id="bannerShop">Shop essentials ↗</button></div>
+</section>
+<section class="view" id="view-shop">
+  <div class="page-title"><div><div class="eyebrow">THE SOCIOCART STORE</div><h1 style="margin-top:13px">Shop essentials</h1><p>Useful things for everyday living, all in one place.</p></div><div class="searchbox"><span>⌕</span><input id="productSearch" placeholder="Search essentials..." aria-label="Search products"/><span>⌘ K</span></div></div>
+  <div class="filters" id="shopFilters"></div><div class="product-grid" id="shopProducts"></div><div id="shopEmpty" class="empty-state" style="display:none"><div class="big">🔎</div><h3>No matching essentials</h3><p>Try a different search or category.</p><button class="secondary-btn" id="clearSearch">Clear filters</button></div>
+</section>
+<section class="view" id="view-tracking">
+  <div class="page-title"><div><div class="eyebrow">A LITTLE PEACE OF MIND</div><h1 style="margin-top:13px">Track your order</h1><p>Follow each step from confirmation to your doorstep.</p></div><span class="demo-badge">DEMO TRACKING</span></div>
+  <div id="trackingContent"></div>
+</section>
+<section class="view" id="view-rider">
+  <div class="dashboard-top"><div><div class="eyebrow">PARTNER WORKSPACE</div><h1>Delivery partner</h1><p>Every delivery brings your community a little closer.</p></div><div style="display:flex;align-items:center;gap:10px"><span id="availabilityLabel" style="font-size:11px;font-weight:800">You're online</span><button class="toggle on" id="availabilityToggle" aria-label="Toggle availability"><span></span></button></div></div>
+  <div class="stat-grid"><div class="stat-card"><div class="stat-head">Assigned today <span class="stat-icon">📦</span></div><div class="stat-value" id="riderAssigned">08</div><div class="stat-foot">Orders in your queue</div></div><div class="stat-card"><div class="stat-head">Completed <span class="stat-icon">✓</span></div><div class="stat-value" id="riderCompleted">06</div><div class="stat-foot"><span class="up">Great work</span> — keep it going</div></div><div class="stat-card"><div class="stat-head">Demo earnings <span class="stat-icon">₹</span></div><div class="stat-value" id="riderEarnings">₹240</div><div class="stat-foot">Illustrative, not payable</div></div><div class="stat-card"><div class="stat-head">Community rating <span class="stat-icon">★</span></div><div class="stat-value">4.9</div><div class="stat-foot">Sample rating</div></div></div>
+  <div class="section-head"><div><h2>Delivery requests</h2><p>Accept an order and update its status to simulate fulfillment.</p></div><span class="demo-badge">SAMPLE ORDERS</span></div><div id="riderOrders"></div>
+</section>
+<section class="view" id="view-admin">
+  <div class="dashboard-top"><div><div class="eyebrow">SOCIETY LIVE COMMAND CENTER</div><h1>Good afternoon, admin.</h1><p>Here's what's happening across your society today.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="demo-badge">● DEMO MODE</span><button class="small-btn" id="resetDemo">↻ Reset demo</button></div></div>
+  <div class="stat-grid"><div class="stat-card"><div class="stat-head">Total orders today <span class="stat-icon">▤</span></div><div class="stat-value" id="statTotal">48</div><div class="stat-foot"><span class="up">↑ 12%</span> vs. previous day</div></div><div class="stat-card"><div class="stat-head">Pending orders <span class="stat-icon">◷</span></div><div class="stat-value" id="statPending">06</div><div class="stat-foot">Need attention</div></div><div class="stat-card"><div class="stat-head">Partners available <span class="stat-icon">♙</span></div><div class="stat-value" id="statRiders">04</div><div class="stat-foot">Ready for assignment</div></div><div class="stat-card"><div class="stat-head">Completed <span class="stat-icon">✓</span></div><div class="stat-value" id="statDelivered">39</div><div class="stat-foot">Orders fulfilled</div></div></div>
+  <div class="dash-grid"><div class="panel"><div class="panel-head"><h3>Live order queue</h3><small id="queueCount">All orders</small></div><div id="adminOrders" class="order-list"></div></div><div class="panel"><div class="panel-head"><h3>Order activity</h3><small>Last 7 days · sample</small></div><div class="chart" id="orderChart"></div><div class="legend"><span><i></i> This week</span><span><i class="pale"></i> Daily volume</span></div><div style="border-top:1px solid var(--line);margin-top:18px;padding-top:17px"><div class="panel-head" style="margin-bottom:12px"><h3>Inventory watch</h3><small>Sample stock</small></div><div style="display:flex;justify-content:space-between;gap:10px;font-size:11px;padding:8px 0"><span>First-aid essentials</span><b style="color:#bd7b22">Low stock</b></div><div style="display:flex;justify-content:space-between;gap:10px;font-size:11px;padding:8px 0"><span>Daily groceries</span><b style="color:#16835b">In stock</b></div><div style="display:flex;justify-content:space-between;gap:10px;font-size:11px;padding:8px 0"><span>Personal care</span><b style="color:#16835b">In stock</b></div></div></div></div>
+  <div class="section-head"><div><h2>Built for real community needs</h2><p>Use this demo to explain how orders and delivery operations connect.</p></div></div><div class="category-grid" style="grid-template-columns:repeat(3,1fr)"><div class="category"><div class="category-icon">🧾</div><b>Order visibility</b><small>One shared queue</small></div><div class="category"><div class="category-icon">🛵</div><b>Partner availability</b><small>See who can deliver</small></div><div class="category"><div class="category-icon">📈</div><b>Demand insights</b><small>Plan for busy hours</small></div></div>
+</section>
+</main>
+ <footer class="footer"><div class="brand" style="font-size:17px"><div class="brand-mark" style="width:29px;height:29px;border-radius:10px;font-size:16px">⌂</div><span>socio<em>cart</em></span></div><span>Made for closer communities. <b>Designed with care.</b></span><span>Prototype · Fictional demo data</span></footer>
+</div>
+<div class="overlay" id="cartModal" role="dialog" aria-modal="true" aria-label="Shopping cart"><div class="modal"><div class="modal-head"><h2>Your cart <span id="cartTitleCount" style="color:var(--muted);font-size:13px"></span></h2><button class="close-btn" data-close="cartModal">×</button></div><div id="cartItems"></div><div id="cartSummary"></div></div></div>
+<div class="overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout"><div class="modal"><div class="modal-head"><h2>Almost there ✨</h2><button class="close-btn" data-close="checkoutModal">×</button></div><p style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:18px">Add your demo delivery details. No payment will be collected.</p><form id="checkoutForm"><label class="field"><span>Full name</span><input name="name" placeholder="e.g. Aanya Sharma" required /></label><label class="field"><span>Society / Tower</span><select name="tower"><option>Tower A</option><option>Tower B</option><option>Tower C</option><option>Tower D</option></select></label><label class="field"><span>Flat number</span><input name="flat" placeholder="e.g. A-203" required /></label><label class="field"><span>Contact number (demo)</span><input name="phone" type="tel" placeholder="10-digit mobile number" pattern="[0-9+() -]{8,16}" required /></label><label class="field"><span>Delivery note (optional)</span><input name="note" placeholder="e.g. Please ring the bell" /></label><button class="full-btn" type="submit">Place demo order · <span id="checkoutTotal">₹0</span></button></form><p class="modal-note">Demo only. Do not enter sensitive personal or payment information. Medicine purchases require appropriate pharmacy verification.</p></div></div>
+<div class="overlay" id="orderSuccessModal" role="dialog" aria-modal="true" aria-label="Order placed"><div class="modal" style="text-align:center"><div style="font-size:54px;margin:10px 0">🎉</div><div class="eyebrow">ORDER CONFIRMED</div><h2 style="font-size:27px;margin:16px 0 8px">You're all set!</h2><p style="font-size:12px;color:var(--muted);line-height:1.7">Your demo order has been added to the shared order queue. Switch to the admin or delivery dashboard to see it move.</p><div style="padding:15px;background:var(--surface-2);border-radius:12px;margin:17px 0"><small style="color:var(--muted);font-size:10px">ORDER ID</small><div id="successOrderId" style="font-size:22px;font-weight:900;margin-top:4px">SN-0001</div></div><button class="full-btn" id="successTrack">Track my order ↗</button><button class="secondary-btn" style="width:100%;margin-top:9px" id="successContinue">Continue shopping</button></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
